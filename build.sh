@@ -1,0 +1,4 @@
+curl --proto '=https' -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+
+make install
