@@ -32,7 +32,9 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     'webserver',
-    '127.0.0.1']
+    '127.0.0.1',
+    'localhost',
+    ]
 
 
 # Application definition
@@ -82,7 +84,7 @@ WSGI_APPLICATION = 'custom_auth_system.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         conn_health_checks=True,
     )
