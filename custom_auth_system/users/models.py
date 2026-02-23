@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
         )
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['first_name', 'middle_name', 'last_name', ]
 
     def get_full_name(self):
         """
@@ -35,3 +35,5 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f'{self.get_full_name()}: {self.email}'
+    
+    
