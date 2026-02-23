@@ -7,25 +7,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Users</a>
-                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Resources</a>
                     </li>
                     <li class="nav-item">
-                        <form method="post" action="#" class="nav-link">
+                        <form method="post" action="{% url 'logout' %}" class="nav-link">
                             {% csrf_token %}
                             <button type="submit" class="dropdown-item">Logout</button>
                         </form>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registration</a>
+                        <a class="nav-link" href="{% url 'user_create' %}">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin:login' %}">Admin access</a>
                     </li>
                     {% endif %}
                 </ul>
