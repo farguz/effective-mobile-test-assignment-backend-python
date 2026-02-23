@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            RANDOM TITLE
-        </title>
-    </head>
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
 
-    <body>
-        <main>
-            <p>RANDOM MAIN BODY PLACEHOLDER</p>
-        </main>
-    </body>
-</html>
+{% block content %}
+<div class="col-lg-8 mx-auto "> 
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>Welcome</h1>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Future card title</h5>
+            <p class="card-text">
+                Future card text/desc
+            </p>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="https://github.com/farguz/" class="btn btn-primary">
+                my github
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
