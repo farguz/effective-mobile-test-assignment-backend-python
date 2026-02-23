@@ -7,6 +7,10 @@ build:
 local-start:
 	uv run manage.py runserver
 
+migrations:
+	uv run manage.py makemigrations
+	uv run manage.py migrate
+
 lint:
 	uv run ruff check
 
