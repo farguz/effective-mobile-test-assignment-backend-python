@@ -1,5 +1,9 @@
 from django.contrib import messages
-from django.contrib.auth import get_user_model, update_session_auth_hash
+from django.contrib.auth import (
+    get_user_model,
+    logout,
+    update_session_auth_hash,
+)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -55,4 +59,15 @@ class DeleteUserView(DeleteView):
 
     model = User
     template_name = 'users/delete.html'
-    pass
+    success_url = reverse_lazy('index_page')
+
+    def get_success_url(self):
+        messages.success(self.request, 'User deleted successfully')
+        return super().get_success_url()
+    
+    def post(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.is_active = False
+        user.save()
+        logout(request)
+        return redirect(self.success_url)

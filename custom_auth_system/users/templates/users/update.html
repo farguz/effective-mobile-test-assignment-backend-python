@@ -12,6 +12,7 @@
                 {% bootstrap_form form %}
                 {% bootstrap_button button_type="submit" content="Update" %}
             </form>
+            <a class="col-lg-8 mx-auto" href="{% url 'user_delete' user.id %}"><button type="submit" class="btn btn-danger">Delete</button></a>
         </div>
     </div>
 </div>
