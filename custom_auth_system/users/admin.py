@@ -1,15 +1,18 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import CustomUser
+from .models import CustomUser, Permission, Resource, Role
 
 
 # Register your models here.
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ['email', 'first_name', 'last_name', 'is_active', ]
+    list_display = ['email', 'first_name', 'last_name', 'role', 'is_active', ]
     search_fields = ['email', 'first_name', 'last_name', ]
     ordering = ['email', ]
     
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Role)
+admin.site.register(Resource)
+admin.site.register(Permission)
