@@ -31,8 +31,8 @@ class RegistrationView(CreateView):
         set default role as student
         '''
         response = super().form_valid(form)
-        student_role = Role.objects.filter(name='student').first()
-        self.object.role = student_role
+        guest_role = Role.objects.filter(name='guest').first()
+        self.object.role = guest_role
         self.object.save()
         return response
 
