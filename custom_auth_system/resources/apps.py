@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ResourcesConfig(AppConfig):
-    name = 'resources'
+    name = 'custom_auth_system.resources'

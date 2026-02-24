@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'custom_auth_system',
     'custom_auth_system.users',
+    'custom_auth_system.resources',
 ]
 
 MIDDLEWARE = [
