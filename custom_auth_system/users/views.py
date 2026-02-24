@@ -10,6 +10,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import Role
 
 User = get_user_model()
 
@@ -24,6 +25,16 @@ class RegistrationView(CreateView):
     def get_success_url(self):
         messages.success(self.request, 'User created successfully')
         return super().get_success_url()
+    
+    def form_valid(self, form):
+        '''
+        set default role as student
+        '''
+        response = super().form_valid(form)
+        student_role = Role.objects.filter(name='student').first()
+        self.object.role = student_role
+        self.object.save()
+        return response
 
 
 class UpdateUserView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
