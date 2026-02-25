@@ -61,3 +61,8 @@ class PermissionForm(forms.ModelForm):
             'can_delete',
             'can_soft_delete',
         ]
+
+
+class JWTLoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
