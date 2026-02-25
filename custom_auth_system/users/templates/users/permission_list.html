@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Permission Management</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Role</th>
+                <th>Resource</th>
+                <th>Read</th>
+                <th>Create</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in permissions %}
+            <tr>
+                <td>{{ p.role.name }}</td>
+                <td>{{ p.resource.name }}</td>
+                <td>{{ p.can_read }}</td>
+                <td>{{ p.can_create }}</td>
+                <td>{{ p.can_update }}</td>
+                <td>{{ p.can_delete }}</td>
+                <td>
+                    <a href="{% url 'permission_update' p.id %}" 
+                       class="btn btn-sm btn-primary">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

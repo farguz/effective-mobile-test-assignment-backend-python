@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="mb-3">
+        Edit Permission:
+        {{ permission.role.name }} → {{ permission.resource.name }}
+    </h3>
+
+    <form method="post" class="card p-4 shadow-sm">
+        {% csrf_token %}
+
+        <div class="form-check">
+            {{ form.can_read }}
+            <label class="form-check-label">Can Read</label>
+        </div>
+
+        <div class="form-check">
+            {{ form.can_create }}
+            <label class="form-check-label">Can Create</label>
+        </div>
+
+        <div class="form-check">
+            {{ form.can_update }}
+            <label class="form-check-label">Can Update</label>
+        </div>
+
+        <div class="form-check">
+            {{ form.can_delete }}
+            <label class="form-check-label">Can Delete</label>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+
+        <a href="{% url 'permission_list' %}" 
+           class="btn btn-secondary">
+            Back
+        </a>
+    </form>
+</div>
+{% endblock %}
