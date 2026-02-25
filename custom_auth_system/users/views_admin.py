@@ -2,7 +2,6 @@ import json
 
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views.decorators.csrf import csrf_exempt
 
 from .decorators import admin_required_api, admin_required_html
 from .forms import PermissionForm
@@ -58,7 +57,6 @@ def permission_list_api(request):
 
 
 @admin_required_api
-@csrf_exempt
 def permission_update_api(request, permission_id):
 
     if request.method != 'PUT':
