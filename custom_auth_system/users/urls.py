@@ -24,6 +24,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path("auth/login/", views_auth.login_view),
-    path("auth/refresh/", views_auth.refresh_view),
+    path('auth/refresh/', views_auth.refresh_view),
+    path('login/', views_auth.login_view, name='login'),
+    path('logout/', views_auth.logout_view, name='logout'),
 ]

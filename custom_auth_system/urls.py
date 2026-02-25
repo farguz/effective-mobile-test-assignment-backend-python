@@ -19,13 +19,9 @@ from django.urls import include, path
 
 from custom_auth_system import views
 
-from .views import AuthSystemLoginView, AuthSystemLogoutView
-
 urlpatterns = [
     path('users/', include('custom_auth_system.users.urls')),
     path('resources/', include('custom_auth_system.resources.urls')),
     path('admin/', admin.site.urls),
-    path('login/', AuthSystemLoginView.as_view(), name='login'),
-    path('logout/', AuthSystemLogoutView.as_view(), name='logout'),
     path('', views.index, name='index_page'),
 ]
