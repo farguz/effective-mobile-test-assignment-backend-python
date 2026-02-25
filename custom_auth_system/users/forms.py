@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import CustomUser
+from .models import CustomUser, Permission
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -48,4 +48,16 @@ class CustomUserChangeForm(forms.ModelForm):
             'middle_name',
             'last_name',
             'email',
+        ]
+
+
+class PermissionForm(forms.ModelForm):
+    class Meta:
+        model = Permission
+        fields = [
+            'can_read',
+            'can_create',
+            'can_update',
+            'can_delete',
+            'can_soft_delete',
         ]
