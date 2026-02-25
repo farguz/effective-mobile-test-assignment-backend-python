@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views_admin
+from . import views_admin, views_auth
 from .views import (
     DeleteUserView,
     RegistrationView,
@@ -20,4 +20,9 @@ urlpatterns += [
     path('permissions/<int:permission_id>/update/', views_admin.permission_update, name='permission_update'),
     path('api/permissions/', views_admin.permission_list_api),
     path('api/permissions/<int:permission_id>/', views_admin.permission_update_api),
+]
+
+urlpatterns += [
+    path("auth/login/", views_auth.login_view),
+    path("auth/refresh/", views_auth.refresh_view),
 ]
