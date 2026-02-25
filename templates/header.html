@@ -14,6 +14,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'user_update' user.id %}">Profile</a>
                     </li>
+                        {% if request.user.role.name == "admin" %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'permission_list' %}">Manage Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:login' %}">Admin panel</a>
+                        </li>
+                        {% endif %}
                     <li class="nav-item">
                         <form method="post" action="{% url 'logout' %}" class="nav-link">
                             {% csrf_token %}
@@ -26,9 +34,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'user_create' %}">Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin:login' %}">Admin access</a>
                     </li>
                     {% endif %}
                 </ul>
