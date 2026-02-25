@@ -1,4 +1,7 @@
-from django.http import HttpResponseForbidden
+from functools import wraps
+
+from django.http import HttpResponseForbidden, JsonResponse
+from django.shortcuts import render
 
 from .models import Permission
 
@@ -30,3 +33,64 @@ def check_permission(resource_name, action='can_read'):
                 )
         return _wrapped_view
     return decorator
+
+
+def _is_admin(user):
+    if not user.is_authenticated:
+        return False
+
+    if user.is_superuser:
+        return True
+
+    if user.role and user.role.name == 'admin':
+        return True
+
+    return False
+
+
+# html
+def admin_required_html(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return render(request, '403.html', status=401)
+
+        if not _is_admin(request.user):
+            return render(request, '403.html', status=403)
+
+        return view_func(request, *args, **kwargs)
+
+    return wrapper
+
+
+# api
+def admin_required_api(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return JsonResponse({'error': 'Unauthorized'}, status=401)
+
+        if not _is_admin(request.user):
+            return JsonResponse({'error': 'Forbidden'}, status=403)
+
+        return view_func(request, *args, **kwargs)
+
+    return wrapper
+
+
+def has_permission(user, resource_name, action):
+    if user.is_superuser:
+        return True
+
+    if not user.role:
+        return False
+
+    try:
+        permission = Permission.objects.get(
+            role=user.role,
+            resource__name=resource_name
+        )
+    except Permission.DoesNotExist:
+        return False
+
+    return getattr(permission, f'can_{action}', False)

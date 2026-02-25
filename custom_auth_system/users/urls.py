@@ -15,6 +15,7 @@ urlpatterns = [
 ]
 
 # ../permissions/
+# ../api/permissions/
 urlpatterns += [
     path('permissions/', views_admin.permission_list, name='permission_list'),
     path('permissions/<int:permission_id>/update/', views_admin.permission_update, name='permission_update'),

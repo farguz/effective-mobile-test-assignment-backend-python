@@ -4,31 +4,21 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
+from .decorators import admin_required_api, admin_required_html
 from .forms import PermissionForm
 from .models import Permission
 
 
+@admin_required_html
 def permission_list(request):
-    if not request.user.is_authenticated:
-        return render(request, '403.html', status=401)
-
-    if not (request.user.is_superuser or 
-            (request.user.role and request.user.role.name == 'admin')):
-        return render(request, '403.html', status=403)
-
     permissions = Permission.objects.select_related('role', 'resource')
     return render(request, 'users/permission_list.html', {
         'permissions': permissions
     })
 
 
+@admin_required_html
 def permission_update(request, permission_id):
-    if not request.user.is_authenticated:
-        return render(request, '403.html', status=401)
-
-    if not (request.user.is_superuser or 
-            (request.user.role and request.user.role.name == 'admin')):
-        return render(request, '403.html', status=403)
 
     permission = get_object_or_404(Permission, id=permission_id)
 
@@ -46,12 +36,8 @@ def permission_update(request, permission_id):
     })
 
 
+@admin_required_api
 def permission_list_api(request):
-    if not request.user.is_authenticated:
-        return JsonResponse({'error': 'Unauthorized'}, status=401)
-
-    if not request.user.role or request.user.role.name != 'admin':
-        return JsonResponse({'error': 'Forbidden'}, status=403)
 
     permissions = Permission.objects.select_related('role', 'resource')
 
@@ -71,13 +57,9 @@ def permission_list_api(request):
     return JsonResponse(data, safe=False)
 
 
+@admin_required_api
 @csrf_exempt
 def permission_update_api(request, permission_id):
-    if not request.user.is_authenticated:
-        return JsonResponse({'error': 'Unauthorized'}, status=401)
-
-    if not request.user.role or request.user.role.name != 'admin':
-        return JsonResponse({'error': 'Forbidden'}, status=403)
 
     if request.method != 'PUT':
         return JsonResponse({'error': 'Method not allowed'}, status=405)
