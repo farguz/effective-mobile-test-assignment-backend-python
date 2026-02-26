@@ -17,6 +17,9 @@ class JWTAuthenticationMiddleware(MiddlewareMixin):
 
         try:
             payload = decode_token(token)
+            if payload.get("type") != "access":
+                request.user = AnonymousUser()
+                return
             user = CustomUser.objects.get(id=payload['user_id'])
             request.user = user
         except Exception:
