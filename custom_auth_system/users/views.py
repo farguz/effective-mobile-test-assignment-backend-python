@@ -54,9 +54,9 @@ class UpdateUserView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def form_valid(self, form):
         user = form.save(commit=False)
-        password = form.cleaned_data.get('password')
-        if password:
-            user.set_password(password)
+        password1 = form.cleaned_data.get('password1')
+        if password1:
+            user.set_password(password1)
         user.save()
         return super().form_valid(form)
 
