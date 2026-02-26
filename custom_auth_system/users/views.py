@@ -1,8 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import (
-    get_user_model,
-    logout,
-)
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -78,5 +75,7 @@ class DeleteUserView(DeleteView):
         user = self.get_object()
         user.is_active = False
         user.save()
-        logout(request)
-        return redirect(self.success_url)
+        response = redirect(self.success_url)
+        response.delete_cookie('access_token')
+        response.delete_cookie('refresh_token')
+        return response
