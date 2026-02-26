@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.contrib.auth import (
     get_user_model,
     logout,
-    update_session_auth_hash,
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
@@ -62,7 +61,6 @@ class UpdateUserView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if password:
             user.set_password(password)
         user.save()
-        update_session_auth_hash(self.request, user)
         return super().form_valid(form)
 
 
