@@ -17,14 +17,17 @@ class CustomUserAdmin(UserAdmin):
 
     fieldsets = [
         (None, {'fields': ('email', 'password')}),
-        (('Personal info'), {'fields': ('first_name', 'middle_name', 'last_name', 'role')}),
-        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-        (('Important dates'), {'fields': ('last_login',)}),
+        ('Personal info', {'fields': ('first_name', 'middle_name', 'last_name', 'role')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
+        ('Important dates', {'fields': ('last_login',)}),
     ]
 
-    # change field password to psw1, psw2
-    fieldsets[0][-1]['fields'] = ('email', 'password1', 'password2')
-    add_fieldsets = fieldsets
+    add_fieldsets = [
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2'),
+        }),
+    ]
     
 
 admin.site.register(CustomUser, CustomUserAdmin)
