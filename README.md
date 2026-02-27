@@ -33,21 +33,31 @@ Access to specific views is managed by a custom `@check_permission` decorator ba
 
 This project uses `uv` for fast package management. It also includes a `Makefile` to make commands easier.
 
-**1. Clone the repository and install dependencies:**
+**1. Clone the repository**
+
+**2. Install dependencies:**
 ```bash
 make build
 ```
-
-**2. Apply migrations and load base data:**
+**3. Apply migrations:**
 ```bash
 make migrations
-uv run manage.py loaddata permissions.json
 ```
-
-*(Note: `permissions.json` contains pre-configured roles, resources, and rules required for the system demonstration).*
-
-**3. Run the development server:**
+**4. Load base data:**
+```bash
+uv run manage.py loaddata permissions.json
+uv run manage.py loaddata users.json
+```
+**5. Run the development server:**
 ```bash
 make local-start
 ```
 The application will be available at http://127.0.0.1:8000/ or http://localhost:8000/
+
+| Role          | Email                            | Password (simply email twice)   |
+| ------------- | -------------------------------- | ------------------------------- |
+| Admin         | karamazov@gmail.com   | karamazov@gmail.comkaramazov@gmail.com     |
+| Course author | marmeladova@gmail.com | marmeladova@gmail.commarmeladova@gmail.com |
+| Mentor        | bazarov@gmail.com     | bazarov@gmail.combazarov@gmail.com         |
+| Student       | raskolnikov@gmail.com | raskolnikov@gmail.comraskolnikov@gmail.com |
+| Guest         | pechorin@gmail.com    | pechorin@gmail.compechorin@gmail.com       |
