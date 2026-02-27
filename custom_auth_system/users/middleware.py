@@ -20,7 +20,13 @@ class JWTAuthenticationMiddleware(MiddlewareMixin):
             if payload.get("type") != "access":
                 request.user = AnonymousUser()
                 return
+            
             user = CustomUser.objects.get(id=payload['user_id'])
+
+            if not user.is_active:
+                request.user = AnonymousUser()
+                return
             request.user = user
+            
         except Exception:
             request.user = AnonymousUser()
