@@ -89,6 +89,7 @@ DATA_STORAGE = {
 }
 
 
+@permission_required_html('profession', 'read')
 def resources_index(request):
 
     return render(request, 'resources/index.html', {
