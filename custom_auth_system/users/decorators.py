@@ -65,7 +65,7 @@ def permission_required_html(resource_name, action):
             if not has_permission(request.user, resource_name, action):
                 messages.error(
                     request,
-                    f'You do not have permission to access this page.'
+                    'You do not have permission to access this page.'
                 )
                 return redirect('index_page')
 
