@@ -18,3 +18,7 @@ dev = [
     "pytest-django>=4.12.0",
     "ruff>=0.15.2",
 ]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "custom_auth_system.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
