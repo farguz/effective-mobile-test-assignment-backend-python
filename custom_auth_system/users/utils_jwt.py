@@ -26,4 +26,9 @@ def generate_refresh_token(user):
 
 
 def decode_token(token):
-    return jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+    try:
+        return jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+    except jwt.ExpiredSignatureError:
+        return None
+    except jwt.InvalidTokenError:
+        return None
