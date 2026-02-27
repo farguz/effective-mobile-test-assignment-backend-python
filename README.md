@@ -6,6 +6,7 @@
 * **Language:** Python 3.12
 * **Framework:** Django 6.0
 * **Database:** PostgreSQL
+* **Tests:** pytest-django
 * **Authentication:** PyJWT (Custom JWT tokens)
 * **Frontend:** Django Templates + Bootstrap 5
 * **Package Manager:** uv
