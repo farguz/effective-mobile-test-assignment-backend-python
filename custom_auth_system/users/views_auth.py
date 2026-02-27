@@ -30,6 +30,10 @@ def login_view(request):
             if not check_password(password, user.password):
                 form.add_error(None, 'Invalid credentials')
                 return render(request, 'users/login.html', {'form': form})
+            
+            if not user.is_active:
+                form.add_error(None, 'Your account has been deleted, contact admin if you want to restore it')
+                return render(request, 'users/login.html', {'form': form})
 
             access = generate_access_token(user)
             refresh = generate_refresh_token(user)
