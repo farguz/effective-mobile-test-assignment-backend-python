@@ -2,6 +2,7 @@
 from django.contrib.auth.hashers import check_password
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
+from django.contrib import messages
 
 from .forms import JWTLoginForm
 from .models import CustomUser
@@ -55,7 +56,8 @@ def login_view(request):
                 secure=False,
                 samesite='Lax'
             )
-
+            
+            messages.success(request, 'You has been logged in successfully')
             return response
 
     else:
@@ -68,6 +70,7 @@ def logout_view(request):
     response = redirect('login')
     response.delete_cookie('access_token')
     response.delete_cookie('refresh_token')
+    messages.success(request, 'You has been logged out successfully')
     return response
 
 
