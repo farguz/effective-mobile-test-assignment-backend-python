@@ -1,0 +1,537 @@
+[
+{
+    "model": "users.role",
+    "pk": 9,
+    "fields": {
+        "name": "admin"
+    }
+},
+{
+    "model": "users.role",
+    "pk": 10,
+    "fields": {
+        "name": "course_author"
+    }
+},
+{
+    "model": "users.role",
+    "pk": 12,
+    "fields": {
+        "name": "mentor"
+    }
+},
+{
+    "model": "users.role",
+    "pk": 13,
+    "fields": {
+        "name": "student"
+    }
+},
+{
+    "model": "users.role",
+    "pk": 14,
+    "fields": {
+        "name": "guest"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 8,
+    "fields": {
+        "name": "profession"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 9,
+    "fields": {
+        "name": "course"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 11,
+    "fields": {
+        "name": "lesson"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 13,
+    "fields": {
+        "name": "practice"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 14,
+    "fields": {
+        "name": "test"
+    }
+},
+{
+    "model": "users.resource",
+    "pk": 15,
+    "fields": {
+        "name": "solution"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 3,
+    "fields": {
+        "role": 14,
+        "resource": 8,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 4,
+    "fields": {
+        "role": 14,
+        "resource": 9,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 5,
+    "fields": {
+        "role": 13,
+        "resource": 8,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 6,
+    "fields": {
+        "role": 13,
+        "resource": 9,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 7,
+    "fields": {
+        "role": 13,
+        "resource": 11,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 8,
+    "fields": {
+        "role": 13,
+        "resource": 13,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 9,
+    "fields": {
+        "role": 13,
+        "resource": 14,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 10,
+    "fields": {
+        "role": 13,
+        "resource": 15,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 11,
+    "fields": {
+        "role": 12,
+        "resource": 8,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 12,
+    "fields": {
+        "role": 12,
+        "resource": 9,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 13,
+    "fields": {
+        "role": 12,
+        "resource": 11,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 14,
+    "fields": {
+        "role": 12,
+        "resource": 13,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 15,
+    "fields": {
+        "role": 12,
+        "resource": 14,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 16,
+    "fields": {
+        "role": 12,
+        "resource": 15,
+        "can_read": true,
+        "can_create": false,
+        "can_update": true,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 17,
+    "fields": {
+        "role": 10,
+        "resource": 8,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 18,
+    "fields": {
+        "role": 10,
+        "resource": 9,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 19,
+    "fields": {
+        "role": 10,
+        "resource": 11,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 20,
+    "fields": {
+        "role": 10,
+        "resource": 13,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 21,
+    "fields": {
+        "role": 10,
+        "resource": 14,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 22,
+    "fields": {
+        "role": 10,
+        "resource": 15,
+        "can_read": true,
+        "can_create": false,
+        "can_update": false,
+        "can_delete": false,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 23,
+    "fields": {
+        "role": 9,
+        "resource": 8,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 24,
+    "fields": {
+        "role": 9,
+        "resource": 9,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 25,
+    "fields": {
+        "role": 9,
+        "resource": 11,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 26,
+    "fields": {
+        "role": 9,
+        "resource": 13,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 27,
+    "fields": {
+        "role": 9,
+        "resource": 14,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 28,
+    "fields": {
+        "role": 9,
+        "resource": 15,
+        "can_read": true,
+        "can_create": true,
+        "can_update": true,
+        "can_delete": true,
+        "can_soft_delete": false
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$P7tKLlyVSizZaamkleFys7$N0REQAwPgapovWCBd7FwcU0xkn0Du4ts/OO73DIJCy8=",
+        "last_login": "2026-02-24T11:22:36Z",
+        "is_superuser": true,
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-02-23T09:52:05.802Z",
+        "first_name": "Ivan",
+        "middle_name": "Fyodorovich",
+        "last_name": "Karamazov",
+        "email": "karamazov@gmail.com",
+        "role": 9,
+        "updated_at": "2026-02-27T07:22:43.108Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$6MLcSW1w8zV23EcERVMqDP$WfrXGDkL2CEIZ/EdKOQjiwWYYpIzlrY5ou/p3++92gQ=",
+        "last_login": "2026-02-25T08:15:04Z",
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-02-23T10:48:28.479Z",
+        "first_name": "Sonya",
+        "middle_name": "Semyonovna",
+        "last_name": "Marmeladova",
+        "email": "marmeladova@gmail.com",
+        "role": 10,
+        "updated_at": "2026-02-27T07:24:07.962Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$E6eB3f10Ce2nCoVXebTP2n$QSWkjqBeJeKxkQAevA4F/YiILHYCazc5C5A3dxa5fgM=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-02-23T17:56:32.816Z",
+        "first_name": "Yevgeny",
+        "middle_name": "Vasilyevich",
+        "last_name": "Bazarov",
+        "email": "bazarov@gmail.com",
+        "role": 12,
+        "updated_at": "2026-02-27T07:21:59.002Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$cZrBLndZOPRgCe9wtkQE3H$pz0EPpsfiyZKmzdhiRw30TLNQnbEn+EO+WIPDD1LVgE=",
+        "last_login": "2026-02-23T18:00:14Z",
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2026-02-23T17:59:04.816Z",
+        "first_name": "Walter",
+        "middle_name": "Heisenberg",
+        "last_name": "White",
+        "email": "white@gmail.com",
+        "role": null,
+        "updated_at": "2026-02-27T07:23:01.943Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$QvEZPKHYqgGdsmZhHd2W18$RIdE9laXL5yjrkLSzZNx7DqXUdHaP9ZVGV0jCKbpSSo=",
+        "last_login": "2026-02-24T08:21:20Z",
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-02-24T08:28:08.454Z",
+        "first_name": "Rodion",
+        "middle_name": "Romanovich",
+        "last_name": "Raskolnikov",
+        "email": "raskolnikov@gmail.com",
+        "role": 13,
+        "updated_at": "2026-02-27T07:25:37.399Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$opKZdh2i7YJZ4R0TCB5hRI$cfoNZWJbVE2Y5Kf/MMJ71ixZony2dt1wyPWbJhX96BU=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-02-25T15:31:12.471Z",
+        "first_name": "Grigory",
+        "middle_name": "Alexandrovich",
+        "last_name": "Pechorin",
+        "email": "pechorin@gmail.com",
+        "role": 14,
+        "updated_at": "2026-02-27T07:23:49.976Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
