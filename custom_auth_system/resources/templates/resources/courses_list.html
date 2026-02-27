@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Courses</h1>
+
+    {% if can_create %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="add">
+
+                <div class="input-group">
+                    <input type="text" name="name"
+                           class="form-control"
+                           placeholder="New course name">
+                    <button type="submit"
+                            class="btn btn-success">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="list-group">
+        {% for course in courses %}
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            {{ course.name }}
+
+            {% if can_delete %}
+            <form method="post" style="margin: 0;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="course_id" value="{{ course.id }}">
+                <button type="submit"
+                        class="btn btn-sm btn-danger">
+                    Delete
+                </button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

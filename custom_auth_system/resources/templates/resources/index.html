@@ -1,9 +1,24 @@
 {% extends "base.html" %}
+
 {% block content %}
-  <h1>{{ title }}</h1>
-  <ul>
-    {% for item in items %}
-      <li>{{ item.name }}</li>
-    {% endfor %}
-  </ul>
+<div class="container mt-4">
+    <h1 class="mb-4">Resources</h1>
+
+    <div class="row">
+        {% for resource in resources %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ resource.name }}</h5>
+
+                    <a href="{% url resource.url %}" 
+                       class="btn btn-primary mt-2">
+                        Open
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
