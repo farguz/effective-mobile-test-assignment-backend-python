@@ -30,6 +30,24 @@ Access to specific views is managed by a custom `@check_permission` decorator ba
 * **Resource:** The business object (mocks/dicts) (e.g., `course`, `lesson`, `solution`).
 * **Permission:**  table that links a Role to a Resource with boolean flags (`can_read`, `can_create`, `can_update`, `can_delete`).
 
+| Resource       | Action | Admin | Course Author | Mentor | Student | Guest |
+| :------------: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Profession** | Read | ✅ | ✅ | ✅ | ✅ | ✅ |
+| | C / U / D | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Course** | Read | ✅ | ✅ | ✅ | ✅ | ✅ |
+| | Create / Update | ✅ | ✅ | ❌ | ❌ | ❌ |
+| | Delete | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Lesson** | Read | ✅ | ✅ | ✅ | ✅ | ❌ |
+| | C / U / D | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Practice** | Read | ✅ | ✅ | ✅ | ✅ | ❌ |
+| | C / U / D | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Test** | Read | ✅ | ✅ | ✅ | ✅ | ❌ |
+| | C / U / D | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Solution** | Read | ✅ | ✅ | ✅ | ✅ | ❌ |
+| | Create | ✅ | ❌ | ❌ | ✅ | ❌ |
+| | Update | ✅ | ❌ | ✅ | ✅ | ❌ |
+| | Delete | ✅ | ❌ | ❌ | ❌ | ❌ |
+
 ## Installation & Setup
 
 This project uses `uv` for fast package management. It also includes a `Makefile` to make commands easier.
@@ -55,10 +73,11 @@ make local-start
 ```
 The application will be available at http://127.0.0.1:8000/ or http://localhost:8000/
 
-| Role          | Email                            | Password (simply email twice)   |
-| ------------- | -------------------------------- | ------------------------------- |
+| Role          | Email                 | Password (simply email twice)              |
+| :-----------: | :-------------------: | :----------------------------------------: |
 | Admin         | karamazov@gmail.com   | karamazov@gmail.comkaramazov@gmail.com     |
 | Course author | marmeladova@gmail.com | marmeladova@gmail.commarmeladova@gmail.com |
 | Mentor        | bazarov@gmail.com     | bazarov@gmail.combazarov@gmail.com         |
 | Student       | raskolnikov@gmail.com | raskolnikov@gmail.comraskolnikov@gmail.com |
 | Guest         | pechorin@gmail.com    | pechorin@gmail.compechorin@gmail.com       |
+
