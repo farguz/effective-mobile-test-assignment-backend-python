@@ -53,21 +53,28 @@ Access to specific views is managed by a custom `@check_permission` decorator ba
 This project uses `uv` for fast package management. It also includes a `Makefile` to make commands easier.
 
 **1. Clone the repository**
-
-**2. Install dependencies:**
+```bash
+git clone https://github.com/farguz/effective-mobile-test-assignment-backend-python.git
+cd effective-mobile-test-assignment-backend-python
+```
+**2. Set environment**
+```bash
+cp .env.example .env
+# manually set SECRET_KEY, DEBUG, DATABASE_URL variables
+```
+**3. Install dependencies:**
 ```bash
 make build
 ```
-**3. Apply migrations:**
+**4. Apply migrations:**
 ```bash
 make migrations
 ```
-**4. Load base data:**
+**5. Load demo data:**
 ```bash
-uv run manage.py loaddata permissions.json
-uv run manage.py loaddata users.json
+make load-data
 ```
-**5. Run the development server:**
+**6. Run the development server:**
 ```bash
 make local-start
 ```
