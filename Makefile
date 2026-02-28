@@ -11,6 +11,9 @@ migrations:
 	uv run manage.py makemigrations
 	uv run manage.py migrate
 
+load-data:
+	uv run manage.py loaddata permissions.json users.json
+
 lint:
 	uv run ruff check
 
